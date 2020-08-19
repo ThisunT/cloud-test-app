@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../environments/environment";
 import {User} from "../model/User";
 
 @Injectable({
@@ -11,7 +12,7 @@ export class UserService {
   }
 
   getAll() {
-    const url = `/api/users/all`;
+    const url = `${environment.baseUrl}/api/users/all`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
