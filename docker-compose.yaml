@@ -1,0 +1,21 @@
+version: '3.0'
+services:
+  cloud-test-client:
+    build: .
+    restart: always
+    container_name: app
+    ports:
+      - 80:80
+    environment:
+      - BACKEND_IP=server:8090
+    networks:
+      - db_app-network
+
+#Docker Networks
+networks:
+  db_app-network:
+    external: true
+##Volumes
+#volumes:
+#  dbdata:
+#    driver: local
